@@ -10,8 +10,7 @@ export class Referee {
 
     constructor(public playerA: Player, public playerB: Player) {
         this.players = [playerA, playerB];
-        this.playerA = this.players[0];
-        this.playerB = this.players[1];
+  
         this.whoServes = this.players[Math.floor(Math.random() * 2)];
         if (this.whoServes === this.players[0]) {
             this.playerThatServesSecond = this.players[1];
