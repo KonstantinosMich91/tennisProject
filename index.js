@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var organizer_1 = require("./organizer");
-var player_1 = require("./player");
-var player1 = new player_1.Player('nick', 7);
-var player2 = new player_1.Player('john', 7);
-// let testReferee = new Referee(player1,player2);
-// testReferee.game();
 var players = ['Andreas T', 'Thodoris', 'Yiannis', 'Ioannis', 'Konstantinos', 'Andreas K', 'Theofilos', 'George'];
 var organ = new organizer_1.Orginizer(players);
 organ.startPhaseOne();

@@ -23,7 +23,7 @@ export class Orginizer {
         this.winnerOfsemi1 = null;
         this.winnerOfsemi2 = null;
         this.finalWinner = null;
-    }   
+    }
 
     genarateCouples() {
         while (this.players.length > 0) {
@@ -54,7 +54,7 @@ export class Orginizer {
     }
 
     startPhaseOne() {
-        
+
         this.generatePlayers();
         console.log(`Phase 1! Players: ${this.players.length}`)
         var couples = this.genarateCouples();
@@ -65,9 +65,9 @@ export class Orginizer {
         console.log(couples);
         console.log('/--------------------------------------/\n');
         console.log(`Starting first games`)
-        for(var i = 0; i < 4; i++){
+        for (var i = 0; i < 4; i++) {
             console.log(`Match ${i + 1}`);
-           this.winnersOfFirstRound[i] = this.refeeres[i].game();
+            this.winnersOfFirstRound[i] = this.refeeres[i].game();
         }
         console.log('/------------------------/')
         console.log(`winners of first Round: `);
@@ -77,27 +77,28 @@ export class Orginizer {
         console.log('Starting Phase 2')
         this.startPhaseTwo();
         console.log('\nFirst Semi Final\n')
-        this.winnerOfsemi1 = new Referee(this.semiFinal1[0],this.semiFinal1[1]).game();
+        this.winnerOfsemi1 = new Referee(this.semiFinal1[0], this.semiFinal1[1]).game();
         console.log('/------------------------/\n')
         console.log('\nSecond Semi Final\n')
-        this.winnerOfsemi2 = new Referee(this.semiFinal2[0],this.semiFinal2[1]).game();
+        this.winnerOfsemi2 = new Referee(this.semiFinal2[0], this.semiFinal2[1]).game();
         console.log('/------------------------/\n')
         console.log(`Winner of semi1 : ${this.winnerOfsemi1.name}`)
         console.log(`Winner of semi2 : ${this.winnerOfsemi2.name}`)
         this.winnerOfsemi1.score = 0;
         this.winnerOfsemi2.score = 0;
+        this.winnerOfsemi1.winningSets = 0;
+        this.winnerOfsemi2.winningSets = 0;
         console.log('/------------------------/\n')
         console.log('Final round')
         console.log(`Players: ${this.winnerOfsemi1.name} - ${this.winnerOfsemi2.name}`);
         console.log('/------------------------/\n')
         this.finalWinner = new Referee(this.winnerOfsemi1, this.winnerOfsemi2).game();
         console.log('/------------------------/')
-        console.log(`FINAL WINNER : ${this.finalWinner.name} !!!!!!!!!!!!!`);  
-        
+        console.log(`FINAL WINNER : ${this.finalWinner.name} !!!!!!!!!!!!!`);
     }
 
-    startPhaseTwo(){
-        for(var i = 0; i < 4; i++){
+    startPhaseTwo() {
+        for (var i = 0; i < 4; i++) {
             this.winnersOfFirstRound[i].score = 0;
             this.winnersOfFirstRound[i].winningSets = 0;
         }

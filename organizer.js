@@ -77,6 +77,8 @@ var Orginizer = /** @class */ (function () {
         console.log("Winner of semi2 : " + this.winnerOfsemi2.name);
         this.winnerOfsemi1.score = 0;
         this.winnerOfsemi2.score = 0;
+        this.winnerOfsemi1.winningSets = 0;
+        this.winnerOfsemi2.winningSets = 0;
         console.log('/------------------------/\n');
         console.log('Final round');
         console.log("Players: " + this.winnerOfsemi1.name + " - " + this.winnerOfsemi2.name);

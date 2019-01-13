@@ -39,28 +39,28 @@ export class Referee {
         console.log(`${player.name} throw the ball with ${shot} power`);
         if (this.whoHasntTheBall.defense(shot)) {
             this.changeWhoHasTheBall();
-            return this.point(this.whoHasTheBall,set);
+            return this.point(this.whoHasTheBall, set);
         } else {
             console.log(`${player.name} won the point `)
-         
+
             player.score++;
-            if(player === this.whoServes && set === 2){
+            if (player === this.whoServes && set === 2) {
                 this.changeWhoHasTheBall();
             }
-            if(player ===  this.playerThatServesSecond && set === 1 ){
+            if (player === this.playerThatServesSecond && set === 1) {
                 this.changeWhoHasTheBall();
             }
             if (player.score === 6) {
                 player.winningSets++;
                 return;
             }
-            this.point(this.whoHasTheBall,set);
+            this.point(this.whoHasTheBall, set);
         }
     }
 
-    set(whoServes: Player, set : number) {
+    set(whoServes: Player, set: number) {
         while (this.playerA.score < 6 && this.playerB.score < 6) {
-            this.point(whoServes,set);
+            this.point(whoServes, set);
         }
         console.log('/-------------------------------------------/');
         console.log('SET results:');
@@ -76,26 +76,28 @@ export class Referee {
         console.log('First server of the game: ' + this.whoServes.name)
         console.log('/****-------------------------------------------*****/')
 
-        this.set(this.whoServes,1);
+        this.set(this.whoServes, 1);
         this.playerA.score = 0;
         this.playerB.score = 0;
+
         console.log('Second server: ' + this.playerThatServesSecond.name)
         console.log('/-------------------------------------------/');
+
         this.changeWhoHasTheBall();
-        this.set(this.playerThatServesSecond,2);
+        this.set(this.playerThatServesSecond, 2);
+        
         if (this.playerA.winningSets === 1 && this.playerB.winningSets === 1) {
             this.playerA.score = 0;
             this.playerB.score = 0;
             console.log('/-------------------------------------------/');
             this.set(this.whoServes, 3);
-
         }
         if (this.playerA.winningSets > this.playerB.winningSets) {
             console.log('//===============================//')
             console.log(`winner of the game : ${this.playerA.name}`)
             console.log('//===============================//');
-            
-            
+
+
             return this.playerA;
         } else {
             console.log('//===============================//')
